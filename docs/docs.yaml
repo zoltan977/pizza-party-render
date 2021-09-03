@@ -1,0 +1,804 @@
+openapi: 3.0.0
+info:
+  title: Pizza Webshop API Documentation
+  description: Swagger API documentation for Pizza Webshop application
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8000
+
+tags:
+  - name: userHandling
+    description: Operations about Users
+  - name: orderHandling
+    description: Everything about Orders
+  - name: dataHandling
+    description: Access to Product data
+  - name: bookingsHandling
+    description: Everyhting about Bookings
+
+paths:
+  /api/get_auth_info:
+    get:
+      tags:
+        - userHandling
+      description: Returns the auth url
+      responses:
+        200: # status code
+          description: The auth url has been returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthUrlData"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/login:
+    post:
+      tags:
+        - userHandling
+      description: Signs in a registered user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginCredentials"
+
+      responses:
+        200: # status code
+          description: User signed in successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessToken"
+
+        400: # status code
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ArrayOfErrorMessages"
+                  - $ref: "#/components/schemas/ErrorMessage"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/register:
+    post:
+      tags:
+        - userHandling
+      description: Signs up a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegistrationData"
+
+      responses:
+        200: # status code
+          description: User signed up successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessMessage"
+
+        400: # status code
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ArrayOfErrorMessages"
+                  - $ref: "#/components/schemas/ErrorMessage"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/password:
+    post:
+      tags:
+        - userHandling
+      description: Setting a new password for the given user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewPasswordData"
+
+      responses:
+        200: # status code
+          description: User changed/set his/her password successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessMessage"
+
+        400: # status code
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ArrayOfErrorMessages"
+                  - $ref: "#/components/schemas/ErrorMessage"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/reset:
+    post:
+      tags:
+        - userHandling
+      description: Setting a reset property for the given user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ResetPasswordData"
+
+      responses:
+        200: # status code
+          description: Reset property of the given user has been set successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessMessage"
+
+        400: # status code
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ArrayOfErrorMessages"
+                  - $ref: "#/components/schemas/ErrorMessage"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/google:
+    post:
+      tags:
+        - userHandling
+      description: Signing up or in the user with google
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GoogleLoginData"
+
+      responses:
+        200: # status code
+          description: User signed up/in successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessToken"
+
+        400: # status code
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ArrayOfErrorMessages"
+                  - $ref: "#/components/schemas/ErrorMessage"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/confirm:
+    post:
+      tags:
+        - userHandling
+      description: Confirming user registration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ConfirmRegistrationData"
+
+      responses:
+        200: # status code
+          description: User registration has been confirmed successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessToken"
+
+        400: # status code
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ArrayOfErrorMessages"
+                  - $ref: "#/components/schemas/ErrorMessage"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/name_change:
+    post:
+      tags:
+        - userHandling
+      security:
+        - pizzaWebshopAuth: []
+      description: Changing the name of the authenticated user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NameChangeData"
+
+      responses:
+        200: # status code
+          description: Name change has been executed successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessMessage"
+
+        400: # status code
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+        401: # status code
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/loaduser:
+    get:
+      tags:
+        - userHandling
+      security:
+        - pizzaWebshopAuth: []
+      description: Returns the user data if the user is authenticated
+      responses:
+        200: # status code
+          description: The user data has been returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserData"
+        400: # status code
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+        401: # status code
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/order:
+    post:
+      tags:
+        - orderHandling
+      security:
+        - pizzaWebshopAuth: []
+      description: Sending an order request of the authenticated user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrderData"
+
+      responses:
+        200: # status code
+          description: Order has been saved in database successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessMessage"
+
+        400: # status code
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ArrayOfErrorMessages"
+                  - $ref: "#/components/schemas/ErrorMessage"
+
+        401: # status code
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/orders:
+    get:
+      tags:
+        - orderHandling
+      security:
+        - pizzaWebshopAuth: []
+      description: Returns the orders of the user if the user is authenticated
+      responses:
+        200: # status code
+          description: The orders data has been returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArrayOfOrders"
+
+        401: # status code
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/data:
+    get:
+      tags:
+        - dataHandling
+      description: Returns the product data
+      responses:
+        200: # status code
+          description: The product data has been returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductData"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/bookings:
+    get:
+      tags:
+        - bookingsHandling
+      security:
+        - pizzaWebshopAuth: []
+      description: Returns all the bookings in the database
+      responses:
+        200: # status code
+          description: The bookings data has been returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookingsData"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+    post:
+      tags:
+        - bookingsHandling
+      security:
+        - pizzaWebshopAuth: []
+      description: Adds a new booking to the database
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookingsData"
+
+      responses:
+        200: # status code
+          description: New booking added to the database successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookingsData"
+
+        400: # status code
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ArrayOfErrorMessages"
+                  - $ref: "#/components/schemas/ErrorMessage"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+  /api/user_bookings:
+    get:
+      tags:
+        - bookingsHandling
+      security:
+        - pizzaWebshopAuth: []
+      description: Returns all the bookings of the current user
+      responses:
+        200: # status code
+          description: The bookings data of the current user has been returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArrayOfUserBookings"
+
+        500: # status code
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+components:
+  securitySchemes:
+    pizzaWebshopAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT # optional, arbitrary value for documentation purposes
+
+  schemas:
+    ProductData:
+      type: object
+      required:
+        - pizza
+        - topping
+      properties:
+        pizza:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductItem"
+        topping:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductItem"
+
+    ProductItem:
+      type: object
+      required:
+        - _id
+        - name
+        - price
+        - description
+        - stock
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        price:
+          type: integer
+        image:
+          type: string
+          default: no-image.png
+        description:
+          type: string
+        stock:
+          type: integer
+
+    OrderData:
+      type: object
+      required:
+        - name
+        - tel
+        - email
+        - address
+        - cart
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        tel:
+          type: string
+        address:
+          type: string
+        cart:
+          type: object
+          properties:
+            pizza:
+              type: object
+            topping:
+              type: object
+
+    OrderItem:
+      type: object
+      required:
+        - name
+        - tel
+        - email
+        - address
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        tel:
+          type: string
+        address:
+          type: string
+        date:
+          type: string
+          format: date-time
+        cart:
+          type: object
+          properties:
+            pizza:
+              type: array
+              items:
+                $ref: "#/components/schemas/CartItem"
+            topping:
+              type: array
+              items:
+                $ref: "#/components/schemas/CartItem"
+    CartItem:
+      type: object
+      required:
+        - name
+        - quantity
+        - price
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        quantity:
+          type: integer
+        price:
+          type: integer
+
+    UserBookingItem:
+      type: object
+      required:
+        - tableNumber
+        - start
+        - end
+      properties:
+        tableNumber:
+          type: string
+        start:
+          type: string
+          format: date
+        end:
+          type: string
+          format: date
+
+    UserData:
+      type: object
+      required:
+        - name
+        - photo
+      properties:
+        name:
+          type: string
+        photo:
+          type: string
+
+    LoginCredentials:
+      type: object
+      required:
+        - password
+        - email
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+
+    RegistrationData:
+      type: object
+      required:
+        - name
+        - password
+        - email
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+
+    ConfirmRegistrationData:
+      type: object
+      required:
+        - code
+        - email
+      properties:
+        code:
+          type: string
+        email:
+          type: string
+
+    GoogleLoginData:
+      type: object
+      required:
+        - code
+      properties:
+        code:
+          type: string
+
+    ResetPasswordData:
+      type: object
+      required:
+        - email
+      properties:
+        email:
+          type: string
+
+    NewPasswordData:
+      type: object
+      required:
+        - code
+        - password
+        - email
+      properties:
+        code:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+
+    ArrayOfErrorMessages:
+      type: array
+      items:
+        $ref: "#/components/schemas/ErrorMessageItem"
+
+    ArrayOfOrders:
+      type: array
+      items:
+        $ref: "#/components/schemas/OrderItem"
+
+    ArrayOfUserBookings:
+      type: object
+      required:
+        - userBookingsArray
+      properties:
+        userBookingsArray:
+          type: array
+          items:
+            $ref: "#/components/schemas/UserBookingItem"
+
+    ErrorMessageItem:
+      type: object
+      required:
+        - msg
+        - value
+        - param
+        - location
+      properties:
+        msg:
+          type: string
+        value:
+          type: string
+        param:
+          type: string
+        location:
+          type: string
+
+    ErrorMessage:
+      type: object
+      required:
+        - msg
+      properties:
+        msg:
+          type: string
+
+    AccessToken:
+      type: object
+      required:
+        - token
+      properties:
+        token:
+          type: string
+
+    NameChangeData:
+      type: object
+      required:
+        - newName
+      properties:
+        newName:
+          type: string
+
+    BookingsData:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: object
+
+    AuthUrlData:
+      type: object
+      required:
+        - authUrl
+      properties:
+        authUrl:
+          type: string
+
+    SuccessMessage:
+      type: object
+      required:
+        - success
+      properties:
+        success:
+          type: boolean
+          default: true

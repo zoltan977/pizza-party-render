@@ -1,0 +1,335 @@
+{
+  "pizza": [
+    {
+      "id": 0,
+      "name": "olivás paradicsomos",
+      "price": 1100,
+      "image": "0001.jpg",
+      "description": "Do velit aute non Lorem dolor elit pariatur. Pariatur deserunt consequat pariatur deserunt pariatur mollit labore. Aliqua et cillum consectetur ea. Est duis ex Lorem commodo ut officia ullamco esse duis sint pariatur adipisicing.",
+      "stock": 1000
+    },
+    {
+      "id": 1,
+      "name": "Hagymás tepertős",
+      "price": 1200,
+      "image": "0002.jpg",
+      "description": "Ut ut pariatur commodo deserunt Lorem esse dolor sunt aliqua. Eiusmod Lorem incididunt tempor deserunt sunt dolore dolor non ipsum sit consequat commodo nulla. Dolore eiusmod pariatur est incididunt fugiat id excepteur in sint deserunt ea. Ad do elit id aliqua ut velit sunt minim aliquip. Do est exercitation culpa sint tempor dolor laboris ut.",
+      "stock": 1000
+    },
+    {
+      "id": 2,
+      "name": "petrezselymes",
+      "price": 1300,
+      "image": "0003.jpg",
+      "description": "Qui minim cillum labore in consectetur laborum magna. Voluptate laboris amet pariatur mollit nostrud id. Nisi Lorem in exercitation incididunt ipsum cillum ad. Amet voluptate aliqua voluptate reprehenderit qui id commodo. Aute ullamco Lorem est non adipisicing consequat. Fugiat quis deserunt et ex est exercitation labore est et anim id pariatur. Irure officia ullamco deserunt nulla cillum culpa consectetur nostrud commodo cillum laboris in.",
+      "stock": 1000
+    },
+    {
+      "id": 3,
+      "name": "Kukoricás, sonkás",
+      "price": 1400,
+      "image": "0004.jpg",
+      "description": "Quis officia elit sit laboris enim ad duis ex. Tempor ut consectetur do duis. Sit veniam non ex voluptate id non nulla. Esse quis officia nostrud fugiat voluptate labore occaecat mollit veniam consequat nisi.",
+      "stock": 1000
+    },
+    {
+      "id": 4,
+      "name": "uborkás pizza",
+      "price": 1500,
+      "image": "0005.jpg",
+      "description": "Fugiat ipsum proident incididunt esse. Quis laboris occaecat magna dolor quis sit et proident pariatur deserunt. Quis veniam laboris sint nostrud esse amet officia exercitation laboris consectetur sit tempor. Ad ad elit dolore ex ea magna ipsum mollit anim non non voluptate eiusmod voluptate. Aute do adipisicing ex excepteur magna consequat laboris id consectetur minim.",
+      "stock": 1000
+    },
+    {
+      "id": 5,
+      "name": "sajtos pizza",
+      "price": 1600,
+      "image": "0006.jpg",
+      "description": "Id voluptate voluptate quis deserunt nostrud velit ullamco labore magna laboris cillum. Ea deserunt dolore est eu culpa dolore proident. Qui sunt est sint velit ullamco nulla qui eiusmod ea. Veniam irure aliquip do enim ut in eu irure esse.",
+      "stock": 1000
+    },
+    {
+      "id": 6,
+      "name": "szalámis pizza",
+      "price": 1700,
+      "image": "0007.jpg",
+      "description": "Mollit excepteur consequat ex quis aute dolor tempor elit et ullamco id ex proident minim. Est eiusmod irure voluptate consectetur voluptate adipisicing reprehenderit sit ad aliqua pariatur. Qui cillum aliquip aute proident sunt deserunt magna proident laborum. Lorem dolor incididunt aute veniam aute et nisi cupidatat quis est cupidatat et culpa. Occaecat officia fugiat laboris elit incididunt ea fugiat non amet cupidatat. Ad voluptate ullamco reprehenderit tempor culpa ex dolore aliqua aliquip.",
+      "stock": 1000
+    },
+    {
+      "id": 7,
+      "name": "Ananászos pizza",
+      "price": 1500,
+      "image": "0008.jpg",
+      "description": "Culpa id voluptate irure do. Consectetur exercitation ipsum veniam voluptate pariatur. Nostrud aliquip reprehenderit consectetur mollit labore pariatur deserunt sit pariatur sint qui commodo. Exercitation minim ullamco ut esse laborum magna. Ad reprehenderit eiusmod nulla occaecat incididunt deserunt proident amet. Nulla officia consequat aute officia ad ipsum ex consectetur cupidatat et proident do commodo. Non anim sint excepteur sint in adipisicing nulla velit cillum sit ex et elit.",
+      "stock": 1000
+    },
+    {
+      "id": 8,
+      "name": "Tandoori csirkés",
+      "price": 2000,
+      "image": "0009.jpg",
+      "description": "Culpa ad qui cupidatat in et sit deserunt proident nulla ullamco. Nulla mollit nulla occaecat cillum et ipsum nulla enim consectetur Lorem aute magna consequat. Cillum duis cillum sit ipsum anim sit excepteur. Ad cillum culpa consequat ea in minim incididunt sit laboris consectetur tempor ex nostrud id. Exercitation ex incididunt adipisicing qui fugiat amet eiusmod aliqua commodo duis sit pariatur enim.",
+      "stock": 1000
+    },
+    {
+      "id": 9,
+      "name": "Pugliese",
+      "price": 1900,
+      "image": "0010.jpg",
+      "description": "Incididunt proident ut velit sint magna commodo qui cillum. Consequat esse culpa commodo quis aliqua. Magna aliqua cupidatat dolore sint nostrud aliquip consectetur anim commodo excepteur in. Pariatur amet esse deserunt id do dolor minim fugiat esse nisi nostrud. Aute aute do amet anim exercitation minim aute. Incididunt occaecat excepteur laborum et culpa aute anim fugiat culpa duis culpa adipisicing. Deserunt dolor dolor officia eiusmod ad.",
+      "stock": 1000
+    },
+    {
+      "id": 10,
+      "name": "Töltött pizza",
+      "price": 1800,
+      "image": "0011.jpg",
+      "description": "Culpa elit ullamco esse exercitation nulla tempor aute aute labore eu elit. Qui velit id irure duis qui cillum. Magna duis veniam proident non sint commodo et amet ullamco eu. Pariatur qui Lorem cillum do dolore fugiat elit laboris ea.",
+      "stock": 1000
+    },
+    {
+      "id": 11,
+      "name": "Tenger gyümölcsei",
+      "price": 2100,
+      "image": "0012.jpg",
+      "description": "Ipsum ipsum amet id veniam reprehenderit nostrud labore dolore fugiat. Exercitation ullamco sit ex non sit officia magna voluptate reprehenderit proident amet. Lorem in ut occaecat id consectetur velit minim cillum enim consequat laborum ad dolor. Nostrud elit nisi proident veniam labore do elit aliquip esse cupidatat commodo. Aliquip duis consectetur nostrud occaecat.",
+      "stock": 1000
+    },
+    {
+      "id": 12,
+      "name": "Pizza Grandiosa",
+      "price": 2000,
+      "image": "0013.jpg",
+      "description": "Ea reprehenderit occaecat culpa ipsum proident eiusmod mollit amet exercitation in sit. Occaecat enim laboris qui magna veniam veniam laboris velit. Ea aute non laboris pariatur irure. Fugiat voluptate eu quis tempor proident laboris.",
+      "stock": 1000
+    },
+    {
+      "id": 13,
+      "name": "Bufalina",
+      "price": 1600,
+      "image": "0014.jpg",
+      "description": "In id officia eu esse ex culpa sint esse officia dolor. Quis minim labore esse sint veniam do eiusmod non excepteur. Ut eiusmod aliquip sit ea in. Velit est amet dolore dolore ipsum nisi pariatur est esse sint qui. Aute incididunt esse fugiat sint. Proident voluptate sit anim nostrud anim labore.",
+      "stock": 1000
+    },
+    {
+      "id": 14,
+      "name": "Diabolo",
+      "price": 2000,
+      "image": "0015.jpg",
+      "description": "Adipisicing et esse aliqua exercitation mollit deserunt labore officia nisi sit amet. In culpa ullamco elit consequat tempor. Sit in nulla sint pariatur consequat. Minim culpa officia occaecat qui. Consectetur et proident aliquip et.",
+      "stock": 1000
+    },
+    {
+      "id": 15,
+      "name": "Sicilian pizza",
+      "price": 1900,
+      "image": "0016.jpg",
+      "description": "Veniam dolore occaecat enim ad ea veniam deserunt anim ullamco laboris laboris sunt. Consequat eu nostrud consectetur ut do ad occaecat minim aute occaecat labore. Cupidatat occaecat incididunt ut cupidatat pariatur labore Lorem dolor magna laborum voluptate sunt.",
+      "stock": 1000
+    },
+    {
+      "id": 16,
+      "name": "Pizza Bianca",
+      "price": 1700,
+      "image": "0017.jpg",
+      "description": "Id aliqua non labore anim labore esse voluptate mollit laborum. Occaecat in dolore ut veniam cillum excepteur. Reprehenderit amet quis velit do Lorem anim labore qui nisi qui est Lorem. Est mollit sint aute nulla cillum laboris ipsum quis dolore ullamco magna culpa ut eiusmod.Deserunt eiusmod sunt commodo amet dolor sit. Proident laborum Lorem do eiusmod pariatur enim irure pariatur sunt. Aliquip non proident anim amet cupidatat anim mollit anim. Dolore quis minim mollit quis fugiat nulla labore Lorem nisi laboris. Adipisicing anim ex dolor occaecat voluptate Lorem dolor irure. Irure cillum non ut labore ea consequat pariatur pariatur elit sit exercitation.",
+      "stock": 1000
+    },
+    {
+      "id": 17,
+      "name": "California style pizza",
+      "price": 1800,
+      "image": "0018.jpg",
+      "description": "Do nisi nostrud duis aliqua do deserunt exercitation officia ut cillum enim. Deserunt commodo reprehenderit commodo minim ea est adipisicing dolor velit dolore. Elit do nostrud enim anim reprehenderit irure. Ea quis dolore culpa magna cupidatat nulla ipsum fugiat sunt adipisicing non deserunt veniam irure. Ut pariatur ullamco pariatur Lorem ullamco reprehenderit Lorem cupidatat eiusmod deserunt ad quis exercitation. Mollit incididunt Lorem officia tempor sint veniam et exercitation esse exercitation officia mollit est. Eiusmod elit qui aute aliqua enim et pariatur incididunt id velit ipsum cupidatat.",
+      "stock": 1000
+    },
+    {
+      "id": 18,
+      "name": "Chicken Alfredo",
+      "price": 1900,
+      "image": "0019.jpg",
+      "description": "Lorem amet veniam velit irure sint laboris laborum esse sint eu eu eiusmod. Aliquip aliquip consectetur excepteur labore magna eiusmod est. Enim irure eiusmod ut cillum duis minim aliquip tempor aliquip. Minim aute velit commodo esse. Do ut cupidatat velit reprehenderit cupidatat aute. Fugiat Lorem proident mollit veniam dolore.",
+      "stock": 1000
+    },
+    {
+      "id": 19,
+      "name": "Tomato Pie",
+      "price": 1200,
+      "image": "0020.jpg",
+      "description": "Anim laboris nostrud laborum commodo labore sint non magna ex culpa enim Lorem mollit. Incididunt enim aute nulla fugiat deserunt esse sit nulla sit qui aliquip exercitation do. Aliquip ut qui in nisi duis.Nulla exercitation eiusmod aliqua dolore esse anim eu enim aliqua ut cillum pariatur. Irure nisi aliquip aute occaecat consectetur. Voluptate qui nulla aute et in cupidatat nulla fugiat.",
+      "stock": 1000
+    },
+    {
+      "id": 20,
+      "name": "Grilled pizza",
+      "price": 2200,
+      "image": "0021.jpg",
+      "description": "Do irure ex non exercitation sit. Deserunt do sunt irure nisi voluptate proident ullamco sint reprehenderit ad pariatur dolore voluptate. Consectetur ea adipisicing occaecat ex laborum sint et fugiat aute consectetur.",
+      "stock": 1000
+    },
+    {
+      "id": 21,
+      "name": "Greek style pizza",
+      "price": 1500,
+      "image": "0022.jpg",
+      "description": "Ipsum quis ex irure minim ex nisi laboris magna esse sunt in ipsum cupidatat. Anim incididunt ipsum sit nisi dolor dolor qui ex eiusmod ipsum id aliquip fugiat. Cillum ullamco dolor amet Lorem nisi sit non aute in voluptate enim eu esse enim. Voluptate laboris eiusmod tempor est occaecat.Minim laborum amet dolore consectetur Lorem veniam irure magna occaecat sit tempor ipsum. Dolore labore sint adipisicing proident nostrud tempor laboris exercitation pariatur commodo ipsum cupidatat nisi deserunt. Nulla qui dolore elit commodo cupidatat elit laboris ea veniam elit. Minim nisi sint adipisicing consequat. Qui anim consequat magna fugiat tempor aliquip duis eu anim ad sunt exercitation ad. Veniam anim qui est magna ea ipsum enim nulla dolore.",
+      "stock": 1000
+    },
+    {
+      "id": 22,
+      "name": "Halloumi pizza",
+      "price": 1400,
+      "image": "0023.jpg",
+      "description": "Deserunt nulla eu aliqua consectetur pariatur et in. Pariatur ut sint consectetur anim qui esse ex consectetur deserunt fugiat ipsum adipisicing aliquip. Aute id minim aliqua consectetur anim ea aute fugiat. Sit et pariatur ipsum officia ut in pariatur sint consectetur officia nostrud elit pariatur in.",
+      "stock": 1000
+    },
+    {
+      "id": 23,
+      "name": "Pesto Genovese",
+      "price": 1300,
+      "image": "0024.jpg",
+      "description": "Do pariatur consequat in quis. In duis consequat duis ullamco ipsum magna deserunt proident eiusmod occaecat irure. Occaecat minim enim reprehenderit quis cillum elit enim in aute velit. Incididunt labore ullamco ipsum sit qui ex. Dolor commodo amet veniam occaecat aute.Fugiat cillum dolore pariatur dolor est commodo pariatur et ullamco. Adipisicing excepteur anim mollit cupidatat consectetur adipisicing cillum commodo culpa amet irure qui aliqua. Adipisicing id velit ad occaecat officia enim tempor velit culpa fugiat incididunt id mollit. Ullamco in sunt elit dolor voluptate reprehenderit quis Lorem tempor sit proident culpa irure anim. In aliquip ullamco ex minim deserunt enim ex laborum. Adipisicing id incididunt laboris deserunt ipsum adipisicing laborum mollit anim enim sunt duis.",
+      "stock": 1000
+    },
+    {
+      "id": 24,
+      "name": "Chicago thin crust",
+      "price": 2000,
+      "image": "0025.jpg",
+      "description": "Nulla magna officia deserunt esse nulla laboris voluptate qui sit nostrud laborum. Ad aliqua reprehenderit ipsum Lorem. Dolore nisi laboris qui mollit sint excepteur est et. Sunt amet ipsum Lorem ex minim mollit officia ipsum nulla magna fugiat excepteur qui. Est esse dolore cupidatat proident pariatur culpa enim pariatur reprehenderit.",
+      "stock": 1000
+    },
+    {
+      "id": 25,
+      "name": "Négy évszak pizza",
+      "price": 1900,
+      "image": "0026.jpg",
+      "description": "Labore irure nisi culpa ex deserunt. In elit proident irure dolor laborum. Qui deserunt non ut culpa mollit duis. Mollit cupidatat ut ad officia duis sit laborum dolore quis eu aliquip ut esse duis.",
+      "stock": 1000
+    },
+    {
+      "id": 26,
+      "name": "Pan Pizza",
+      "price": 1200,
+      "image": "0027.jpg",
+      "description": "Excepteur elit excepteur ex elit velit sint et commodo veniam. Exercitation est commodo aliqua ad id veniam. Aute mollit incididunt qui fugiat. Cupidatat minim dolore anim nostrud sit aliquip. Amet Lorem sunt cupidatat cillum sint voluptate nisi do esse eiusmod non mollit voluptate.",
+      "stock": 1000
+    }
+  ],
+
+  "topping": [
+    {
+      "id": 0,
+      "name": "bolognai feltét",
+      "price": 500,
+      "image": "0001.jpg",
+      "description": "Enim do id proident elit non ex Lorem mollit veniam fugiat ea laboris anim anim. Ipsum pariatur dolore amet aute aliqua qui culpa. Laboris nisi cupidatat tempor nisi exercitation qui incididunt. Deserunt consectetur adipisicing dolore anim tempor. Voluptate cupidatat aliquip magna proident consequat ut ea duis et laboris fugiat nostrud nisi laboris. Amet sit minim dolore deserunt eiusmod anim quis laborum incididunt laborum. Incididunt exercitation dolor dolore ut Lorem duis.",
+      "stock": 1000
+    },
+    {
+      "id": 1,
+      "name": "calzone feltét",
+      "price": 700,
+      "image": "0002.jpg",
+      "description": "Pariatur ea elit laboris velit veniam elit occaecat veniam proident pariatur veniam qui anim. Laborum sit velit cupidatat qui dolore ex. Nostrud magna enim adipisicing ullamco eiusmod est fugiat nulla ea.",
+      "stock": 1000
+    },
+    {
+      "id": 2,
+      "name": "margherita feltét",
+      "price": 1000,
+      "image": "0003.jpg",
+      "description": "Aliqua consequat excepteur duis irure pariatur qui deserunt ex enim. Adipisicing aute irure esse velit ex dolor adipisicing veniam eiusmod quis. Incididunt sit consectetur occaecat consequat officia fugiat ad fugiat Lorem aliqua eiusmod do. Cillum id quis non aliquip eu. Aute dolore laborum sint id exercitation consectetur laboris velit occaecat enim cillum ipsum nulla. Consectetur ipsum irure nisi occaecat. Sunt consectetur est sit nulla sit voluptate.",
+      "stock": 1000
+    },
+    {
+      "id": 3,
+      "name": "marinara feltét",
+      "price": 900,
+      "image": "0004.jpg",
+      "description": "Sunt laborum enim Lorem nisi ea ipsum nostrud officia. Pariatur ipsum velit nostrud sit eu irure. Est culpa ea aliquip cillum aliqua nisi laborum nostrud qui minim tempor nisi commodo incididunt. Lorem est adipisicing elit ullamco aliquip mollit nostrud deserunt veniam. Amet sunt eiusmod tempor aliqua Lorem labore fugiat irure aute elit excepteur ipsum mollit ad. Velit mollit irure voluptate laboris cillum sit sunt.",
+      "stock": 1000
+    },
+    {
+      "id": 4,
+      "name": "napoletana feltét",
+      "price": 1200,
+      "image": "0005.jpg",
+      "description": "Excepteur minim ullamco elit esse dolore duis. Reprehenderit laborum aliqua proident qui esse incididunt in magna laborum mollit nulla consectetur cupidatat. Ex veniam ut commodo exercitation reprehenderit dolor elit.",
+      "stock": 1000
+    },
+    {
+      "id": 5,
+      "name": "prosciutto feltét",
+      "price": 600,
+      "image": "0006.jpg",
+      "description": "In in quis aliqua proident ut nulla dolore occaecat. Pariatur nulla sit occaecat cupidatat ut aliqua aliquip esse qui ut cupidatat eu. Aliquip dolor adipisicing consectetur id.",
+      "stock": 1000
+    },
+    {
+      "id": 6,
+      "name": "quattro formaggie",
+      "price": 650,
+      "image": "0007.jpg",
+      "description": "Velit adipisicing eu consequat anim duis. Aute cupidatat ipsum duis consectetur non sint reprehenderit. Nulla nostrud culpa eu veniam qui aliqua occaecat commodo ex non. Lorem sit labore dolor ex voluptate velit occaecat id. Tempor est aute velit proident laborum pariatur tempor.",
+      "stock": 1000
+    },
+    {
+      "id": 7,
+      "name": "BBQ sauce",
+      "price": 1100,
+      "image": "0008.jpg",
+      "description": "Nisi nulla do exercitation minim in ea laborum Lorem anim aliquip sint et. Nulla mollit ullamco dolor consequat aute voluptate elit enim ipsum aliqua pariatur nulla. Dolor veniam ex Lorem tempor Lorem eu occaecat tempor. Sit Lorem est irure Lorem ad sint. Magna labore consectetur laboris proident aliqua anim qui aliqua sunt consequat laboris fugiat pariatur sunt. Quis in eiusmod enim consectetur reprehenderit adipisicing ullamco.",
+      "stock": 1000
+    },
+    {
+      "id": 8,
+      "name": "Vajas garnéla és chili",
+      "price": 1150,
+      "image": "0009.jpg",
+      "description": "Reprehenderit sit amet tempor ut excepteur commodo consectetur labore irure. Pariatur duis occaecat excepteur consequat est amet officia. Duis magna do aliqua incididunt.",
+      "stock": 1000
+    },
+    {
+      "id": 9,
+      "name": "Kolbász és kelkáposzta",
+      "price": 600,
+      "image": "0010.jpg",
+      "description": "Laborum elit et et fugiat aliquip est tempor consectetur velit Lorem. Consectetur nostrud amet enim deserunt ipsum sint. Veniam sunt cupidatat ullamco reprehenderit et minim exercitation aliqua dolore dolor tempor sint. Quis reprehenderit dolore aliquip amet. Deserunt reprehenderit ea ea irure adipisicing in irure consectetur magna labore labore consequat laborum aliquip. Eiusmod Lorem quis culpa exercitation ullamco occaecat esse aute officia dolor.",
+      "stock": 1000
+    },
+    {
+      "id": 10,
+      "name": "Capricciosa",
+      "price": 660,
+      "image": "0011.jpg",
+      "description": "Duis esse do duis commodo nulla ad nulla duis nisi sint quis. Ad duis duis aliqua ad dolor. Nostrud consequat est ex amet proident voluptate. Ad ea laborum consectetur veniam pariatur proident voluptate elit id reprehenderit et incididunt. Dolor amet dolore qui qui esse cupidatat mollit ad labore velit. Commodo elit quis exercitation ad culpa anim.",
+      "stock": 1000
+    },
+    {
+      "id": 11,
+      "name": "Sajt és fokhagyma",
+      "price": 500,
+      "image": "0012.jpg",
+      "description": "Irure aliqua ut ex ad deserunt reprehenderit esse consequat consectetur. Aliqua eiusmod officia ex adipisicing ex quis eu nisi. Excepteur Lorem fugiat velit ut sunt est velit. Sint est ut elit enim culpa deserunt enim quis fugiat ea elit esse amet. Ea eiusmod nulla reprehenderit eu voluptate labore pariatur minim commodo. Magna Lorem elit proident minim aliquip do reprehenderit anim proident nisi et exercitation tempor. Minim veniam non veniam eu eu.",
+      "stock": 1000
+    },
+    {
+      "id": 12,
+      "name": "Burgonya és rozmaring",
+      "price": 520,
+      "image": "0013.jpg",
+      "description": "Anim nisi eiusmod sint anim irure duis fugiat. Id cillum excepteur exercitation magna qui sunt commodo sunt ea. Incididunt ad Lorem dolor veniam do est non irure fugiat aliqua.",
+      "stock": 1000
+    },
+    {
+      "id": 13,
+      "name": "Hawaiian",
+      "price": 660,
+      "image": "0014.jpg",
+      "description": "Laboris laborum magna nulla nisi amet ex anim laboris sit exercitation in velit eu nulla. Aliquip id exercitation amet excepteur. Voluptate incididunt consectetur anim occaecat qui amet dolore do ad.",
+      "stock": 1000
+    }
+  ]
+}
