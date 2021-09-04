@@ -97,7 +97,6 @@ router.post(
         if (Object.keys(value[tableNumber]).length < 1) ok = false;
         for (const date in value[tableNumber]) {
           if (new Date(date).toString() === "Invalid Date") ok = false;
-          if (new Date(date) < new Date()) ok = false;
           if (Object.keys(value[tableNumber][date]).length < 1) ok = false;
           for (const interval of value[tableNumber][date]) {
             if (parseInt(interval) < 0 || parseInt(interval) > 95) ok = false;
