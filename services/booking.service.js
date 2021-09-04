@@ -55,22 +55,22 @@ const parseBookingsOfTheUser = (bookingsOfTheUser, calendar, email) => {
         bookingsOfTheUser[tableNumber][date][0]
       );
 
-      let start = new Date(`${date}T${sHour}:${sMinute}:00`);
+      let start = new Date(`${date}T${sHour}:${sMinute}:00.000Z`);
       let end;
       let prevInterval = bookingsOfTheUser[tableNumber][date][0];
       for (const interval of bookingsOfTheUser[tableNumber][date]) {
         if (interval - prevInterval > 1) {
           const [endHour, endMinute] = countHourMinute(prevInterval + 1);
-          end = new Date(`${date}T${endHour}:${endMinute}:00`);
+          end = new Date(`${date}T${endHour}:${endMinute}:00.000Z`);
           sendBookingToGoogle(start, end, tableNumber, calendar, email);
           const [startHour, startMinute] = countHourMinute(interval);
-          start = new Date(`${date}T${startHour}:${startMinute}:00`);
+          start = new Date(`${date}T${startHour}:${startMinute}:00.000Z`);
         }
 
         prevInterval = interval;
       }
       const [eHour, eMinute] = countHourMinute(prevInterval + 1);
-      end = new Date(`${date}T${eHour}:${eMinute}:00`);
+      end = new Date(`${date}T${eHour}:${eMinute}:00.000Z`);
       sendBookingToGoogle(start, end, tableNumber, calendar, email);
     }
   }
@@ -110,7 +110,7 @@ const allBooking = async (email) => {
       for (const date in table["data"][tableNumber]) {
         for (const interval in table["data"][tableNumber][date]) {
           const [startHour, startMinute] = countHourMinute(interval);
-          const start = new Date(`${date}T${startHour}:${startMinute}:00`);
+          const start = new Date(`${date}T${startHour}:${startMinute}:00.000Z`);
 
           if (start < new Date()) {
             delete table["data"][tableNumber][date][interval];
