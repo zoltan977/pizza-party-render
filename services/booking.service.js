@@ -108,14 +108,21 @@ const allBooking = async (email) => {
   if (table.data)
     for (const tableNumber in table["data"]) {
       for (const date in table["data"][tableNumber]) {
-        if (new Date(date) < new Date()) {
-          delete table["data"][tableNumber][date];
-          continue;
-        }
-
         for (const interval in table["data"][tableNumber][date]) {
+          const [startHour, startMinute] = countHourMinute(interval);
+          const start = new Date(`${date}T${startHour}:${startMinute}:00`);
+
+          if (start < new Date()) {
+            delete table["data"][tableNumber][date][interval];
+            continue;
+          }
+
           if (table["data"][tableNumber][date][interval] !== email)
             table["data"][tableNumber][date][interval] = true;
+        }
+        if (!Object.keys(table["data"][tableNumber][date]).length) {
+          delete table["data"][tableNumber][date];
+          continue;
         }
       }
     }
