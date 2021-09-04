@@ -159,11 +159,7 @@ describe("Booking handling tests", () => {
 
   test("/api/booking should update the booking data when a properly fomatted object is POSTed to it and it does not collide with existing data", async () => {
     //Given a properly formatted object
-    const tzoffset = new Date().getTimezoneOffset() * 60000; //offset in milliseconds
-
-    const aDayInTheFuture = new Date(
-      Date.now() + 1 * 24 * 60 * 60 * 1000 - tzoffset
-    )
+    const aDayInTheFuture = new Date(Date.now() + 1 * 24 * 60 * 60 * 1000)
       .toISOString()
       .slice(0, 10);
 
@@ -325,39 +321,6 @@ describe("Booking handling tests", () => {
     expect(Array.isArray(resp6.body.errors)).toBe(true);
     expect(resp6.body.errors.length).toBe(1);
     expect(resp6.body.errors[0].msg).toBe(
-      "A küldött adat formátuma nem megfelelő"
-    );
-
-    const tzoffset2 = new Date().getTimezoneOffset() * 60000; //offset in milliseconds
-
-    const aDayInThePast = new Date(
-      Date.now() - 1 * 24 * 60 * 60 * 1000 - tzoffset2
-    )
-      .toISOString()
-      .slice(0, 10);
-
-    //Given a malformed object (a day in the past)
-    const objectToPOST_6 = {
-      data: {
-        5: {
-          [aDayInThePast]: [66],
-        },
-      },
-    };
-
-    //When we POST it
-    const resp7 = await request
-      .post(`/api/bookings`)
-      .set("Authorization", `Bearer ${token}`)
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
-      .send(objectToPOST_6);
-
-    //then we get back an error message with status 400
-    expect(resp7.status).toBe(400);
-    expect(Array.isArray(resp7.body.errors)).toBe(true);
-    expect(resp7.body.errors.length).toBe(1);
-    expect(resp7.body.errors[0].msg).toBe(
       "A küldött adat formátuma nem megfelelő"
     );
   });
