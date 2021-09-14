@@ -23,18 +23,11 @@ describe("Booking handling tests", () => {
 
   test("/api/user_bookings should give back the data of all the future bookings of the user when a GET request is sent", async () => {
     //Given this bookings data in the database
-
-    const tzoffset = new Date().getTimezoneOffset() * 60000; //offset in milliseconds
-
-    const aDayInTheFuture = new Date(
-      Date.now() + 1 * 24 * 60 * 60 * 1000 - tzoffset
-    )
+    const aDayInTheFuture = new Date(Date.now() + 1 * 24 * 60 * 60 * 1000)
       .toISOString()
       .slice(0, 10);
 
-    const aDayInThePast = new Date(
-      Date.now() - 1 * 24 * 60 * 60 * 1000 - tzoffset
-    )
+    const aDayInThePast = new Date(Date.now() - 1 * 24 * 60 * 60 * 1000)
       .toISOString()
       .slice(0, 10);
 
@@ -95,11 +88,7 @@ describe("Booking handling tests", () => {
 
   test("/api/booking should give back the data of all the future bookings when a GET request is sent", async () => {
     //Given this bookings data in the database
-    const tzoffset = new Date().getTimezoneOffset() * 60000; //offset in milliseconds
-
-    const aDayInTheFuture = new Date(
-      Date.now() + 1 * 24 * 60 * 60 * 1000 - tzoffset
-    )
+    const aDayInTheFuture = new Date(Date.now() + 1 * 24 * 60 * 60 * 1000)
       .toISOString()
       .slice(0, 10);
 
@@ -323,16 +312,41 @@ describe("Booking handling tests", () => {
     expect(resp6.body.errors[0].msg).toBe(
       "A küldött adat formátuma nem megfelelő"
     );
+
+    //given a malformed data where the date is in the past
+    const aDayInThePast = new Date(Date.now() - 1 * 24 * 60 * 60 * 1000)
+      .toISOString()
+      .slice(0, 10);
+
+    const objectToPOST_6 = {
+      data: {
+        2: {
+          [aDayInThePast]: [33],
+        },
+      },
+    };
+
+    //When we POST it
+    const resp7 = await request
+      .post(`/api/bookings`)
+      .set("Authorization", `Bearer ${token}`)
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .send(objectToPOST_6);
+
+    //then we get back an error message with status 400
+    expect(resp7.status).toBe(400);
+    expect(Array.isArray(resp7.body.errors)).toBe(true);
+    expect(resp7.body.errors.length).toBe(1);
+    expect(resp7.body.errors[0].msg).toBe(
+      "A küldött adat formátuma nem megfelelő"
+    );
   });
 });
 
 test("/api/booking POST should give back an error message when user is not authenticated", async () => {
   //Given a properly formatted object
-  const tzoffset = new Date().getTimezoneOffset() * 60000; //offset in milliseconds
-
-  const aDayInTheFuture = new Date(
-    Date.now() + 1 * 24 * 60 * 60 * 1000 - tzoffset
-  )
+  const aDayInTheFuture = new Date(Date.now() + 1 * 24 * 60 * 60 * 1000)
     .toISOString()
     .slice(0, 10);
 
