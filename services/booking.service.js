@@ -64,7 +64,9 @@ const parseBookingsOfTheUser = (bookingsOfTheUser, callBackFn) => {
         ) {
           const [endHour, endMinute] = countHourMinute(prevInterval + 1);
           end = new Date(`${prevDate}T${endHour}:${endMinute}:00.000Z`);
-          if (start > new Date()) callBackFn(start, end, tableNumber);
+
+          callBackFn(start, end, tableNumber);
+
           const [startHour, startMinute] = countHourMinute(interval);
           start = new Date(`${date}T${startHour}:${startMinute}:00.000Z`);
         }
@@ -75,7 +77,8 @@ const parseBookingsOfTheUser = (bookingsOfTheUser, callBackFn) => {
     }
     const [eHour, eMinute] = countHourMinute(prevInterval + 1);
     end = new Date(`${prevDate}T${eHour}:${eMinute}:00.000Z`);
-    if (start > new Date()) callBackFn(start, end, tableNumber);
+
+    callBackFn(start, end, tableNumber);
   }
 };
 
@@ -142,7 +145,7 @@ exports.bookings = async (email) => {
   return table;
 };
 
-//Fills an array with future bookings of the authenticated user
+//Fills an array with bookings of the authenticated user
 //and returns it
 //It is in the form: [{start, end, tableNumber}]
 exports.userBookings = async (email) => {
@@ -210,7 +213,10 @@ exports.createBooking = async (data, email, calendar) => {
         if (!table["data"][tableNumber][date])
           table["data"][tableNumber][date] = {};
         for (const interval of data[tableNumber][date]) {
-          if (table["data"]?.[tableNumber]?.[date]?.[interval]) {
+          if (
+            table["data"]?.[tableNumber]?.[date]?.[interval] &&
+            table["data"]?.[tableNumber]?.[date]?.[interval] !== email
+          ) {
             const allBookingWithoutEmails = await allBooking(email);
             throw {
               status: 400,
