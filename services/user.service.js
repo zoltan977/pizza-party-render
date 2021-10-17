@@ -215,7 +215,7 @@ exports.register = async (registrationData) => {
     });
   } catch (error) {
     console.log("Error creating user: ", error);
-    throw { status: 400, msg: `Felhasználó létrehozási hiba!: ${JSON.stringify(error)}` };
+    throw { status: 400, msg: `Felhasználó létrehozási hiba!` };
   }
 
   return { success: true };
