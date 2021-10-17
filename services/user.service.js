@@ -206,7 +206,7 @@ exports.register = async (registrationData) => {
 
     //Sending confirmation email
     await transporter.sendMail({
-      from: `"Admin" ${process.env.email}`, // sender address
+      from: `"Admin" ${process.env.EMAIL}`, // sender address
       to: savedUser.email, // list of receivers
       subject: "Regisztráció megerősítés", // Subject line
       html: `<p>A regisztráció megerősítéséhez kattints <a href="http://localhost:3000/confirm?code=${buf.toString(
