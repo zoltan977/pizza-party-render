@@ -9,13 +9,11 @@ const settings = require("../settings");
 const { validateImage } = require("../utils/validateImage");
 
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
-      auth: {
-          user: process.env.EMAIL,
-          pass: process.env.PASSWORD
-      }
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
 });
 
 exports.nameChange = async ({ newName }, user) => {
