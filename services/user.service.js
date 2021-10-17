@@ -9,7 +9,7 @@ const settings = require("../settings");
 const { validateImage } = require("../utils/validateImage");
 
 const transporter = nodemailer.createTransport({
-  service: "Yandex",
+  service: "gmail",
   auth: {
     user: process.env.EMAIL,
     pass: process.env.PASSWORD,
