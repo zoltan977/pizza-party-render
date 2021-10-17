@@ -209,7 +209,7 @@ exports.register = async (registrationData) => {
       from: `"Admin" ${process.env.EMAIL}`, // sender address
       to: savedUser.email, // list of receivers
       subject: "Regisztráció megerősítés", // Subject line
-      html: `<p>A regisztráció megerősítéséhez kattints <a href="http://localhost:3000/confirm?code=${buf.toString(
+      html: `<p>A regisztráció megerősítéséhez kattints <a href="${settings.BASE_URL}/confirm?code=${buf.toString(
         "hex"
       )}&email=${savedUser.email}">erre</a> a linkre!</p>`,
     });
