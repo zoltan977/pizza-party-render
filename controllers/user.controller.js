@@ -12,7 +12,14 @@ exports.userAccount = (service) =>
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const result = await UserService[service](req.body);
+    const userFile = req?.files?.userfile;
+
+    const result = await UserService[service](
+      req.body,
+      res.locals.user,
+      userFile
+    );
+
     return res.json(result);
   });
 
@@ -21,17 +28,6 @@ exports.loadUser = asyncHandler(async (req, res) => {
   if (!user) return res.status(400).json({ msg: "Nincs ilyen felhasználó" });
   else
     return res.json({ name: user.name, photo: user.photo, email: user.email });
-});
-
-exports.nameChange = asyncHandler(async (req, res) => {
-  if (!(req.body && req.body.newName && req.body.newName.toString().length))
-    return res.status(400).json({ msg: "Nincs megadva név" });
-
-  const result = await UserService.nameChange(
-    req.body.newName,
-    res.locals.user
-  );
-  return res.json(result);
 });
 
 exports.getAuthInfo = asyncHandler(async (req, res) => {

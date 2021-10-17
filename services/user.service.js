@@ -5,6 +5,8 @@ const nodemailer = require("nodemailer");
 const createToken = require("../utils/createToken");
 const oauth2Client = require("../utils/oauth2Client")();
 const jwt = require("jsonwebtoken");
+const settings = require("../settings");
+const { validateImage } = require("../utils/validateImage");
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -14,7 +16,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-exports.nameChange = async (newName, user) => {
+exports.nameChange = async ({ newName }, user) => {
   const userInDatabase = await User.findOne({ email: user.email });
 
   if (!userInDatabase) throw { status: 400, msg: "user not exists" };
@@ -266,4 +268,34 @@ exports.google = async (postedData) => {
   const token = createToken(user, tokens.access_token);
 
   return { token };
+};
+
+exports.updateProfile = async (postedData, user, userFile) => {
+  const filter = { email: user.email };
+  const update = { ...JSON.parse(postedData.data) };
+
+  if (userFile) {
+    if (!validateImage(userFile)) {
+      throw { msg: "Image size or format is not correct", status: 400 };
+    }
+
+    const uploadPath = settings.PROJECT_DIR + "/public/photos/" + user.email;
+    try {
+      userFile.mv(uploadPath);
+      update.photo = settings.BASE_URL + "/photos/" + user.email;
+    } catch (error) {
+      throw { msg: "Image saving error", status: 400 };
+    }
+  }
+
+  const updatedUser = await User.findOneAndUpdate(filter, update, {
+    new: true,
+    upsert: true,
+  });
+
+  return {
+    name: updatedUser.name,
+    photo: updatedUser.photo,
+    email: updatedUser.email,
+  };
 };

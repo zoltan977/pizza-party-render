@@ -5,35 +5,9 @@ const OrderController = require("../controllers/order.controller");
 const DataController = require("../controllers/data.controller");
 const BookingController = require("../controllers/booking.controller");
 const auth = require("../middleware/auth");
-const countHourMinute = require("../utils/countHourMinute");
 const { check, body } = require("express-validator");
-
-const newBookingsValidator = (value) => {
-  let ok = true;
-  if (Object.keys(value).length < 1) ok = false;
-  for (const tableNumber in value) {
-    if (parseInt(tableNumber) < 1 || parseInt(tableNumber) > 10) ok = false;
-    if (Object.keys(value[tableNumber]).length < 1) ok = false;
-    for (const date in value[tableNumber]) {
-      if (new Date(date).toString() === "Invalid Date") ok = false;
-      if (Object.keys(value[tableNumber][date]).length < 1) ok = false;
-      for (const interval of value[tableNumber][date]) {
-        if (parseInt(interval) < 0 || parseInt(interval) > 95) ok = false;
-
-        const [startHour, startMinute] = countHourMinute(interval);
-        const start = new Date(`${date}T${startHour}:${startMinute}:00.000Z`);
-        if (start < new Date()) ok = false;
-      }
-    }
-  }
-
-  if (!ok) {
-    throw new Error("A küldött adat formátuma nem megfelelő");
-  }
-
-  // Indicates the success of this synchronous custom validator
-  return true;
-};
+const updateProfileValidator = require("./validators/updateProfileValidator");
+const newBookingsValidator = require("./validators/newBookingsValidator");
 
 router.post(
   "/login",
@@ -89,7 +63,17 @@ router.post(
   UserController.userAccount("confirm")
 );
 
-router.post("/name_change", [auth], UserController.nameChange);
+router.post(
+  "/name_change",
+  [check("newName", "Nincs megadva név").not().isEmpty(), auth],
+  UserController.userAccount("nameChange")
+);
+
+router.post(
+  "/update_profile",
+  [auth, body().custom(updateProfileValidator)],
+  UserController.userAccount("updateProfile")
+);
 
 router.get("/loaduser", [auth], UserController.loadUser);
 

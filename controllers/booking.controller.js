@@ -3,7 +3,7 @@ const { validationResult } = require("express-validator");
 const BookingService = require("../services/booking.service");
 
 exports.bookings = asyncHandler(async (req, res) => {
-  table = await BookingService.bookings(res.locals.user.email);
+  const table = await BookingService.bookings(res.locals.user.email);
 
   return res.json(table);
 });
@@ -17,7 +17,6 @@ exports.userBookings = asyncHandler(async (req, res) => {
 });
 
 exports.createBooking = asyncHandler(async (req, res) => {
-  // console.log(req.body.data);
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {

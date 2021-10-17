@@ -3,14 +3,17 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const fileUpload = require("express-fileupload");
 const swaggerUi = require("swagger-ui-express");
 const YAML = require("yamljs");
 
 const swaggerDocument = YAML.load("./docs/docs.yaml");
 
 app.use(cors());
-app.use(express.json({ extended: false }));
-app.use('/', express.static(__dirname + '/public'))
+app.use(fileUpload());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/", express.static(__dirname + "/public"));
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
