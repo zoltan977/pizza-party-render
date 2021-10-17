@@ -282,7 +282,7 @@ exports.updateProfile = async (postedData, user, userFile) => {
     const uploadPath = settings.PROJECT_DIR + "/public/photos/" + user.email;
     try {
       userFile.mv(uploadPath);
-      update.photo = settings.BASE_URL + "/photos/" + user.email;
+      update.photo = "photos/" + user.email;
     } catch (error) {
       throw { msg: "Image saving error", status: 400 };
     }
