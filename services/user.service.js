@@ -8,13 +8,31 @@ const jwt = require("jsonwebtoken");
 const settings = require("../settings");
 const { validateImage } = require("../utils/validateImage");
 
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+
+const myOAuth2Client = new OAuth2(
+  "833607828480-ltcjqgdcgtj8gsmqsbv05adp9939178b.apps.googleusercontent.com",
+  "xw8qEdYnawKOon328_o1RGCC",
+  "https://developers.google.com/oauthplayground"
+  )
+
+myOAuth2Client.setCredentials({
+  refresh_token:"1//04PIqWzHH9mL7CgYIARAAGAQSNwF-L9Ir7Mt8jMkn6Kroi9GCbCyOakDydpadUBDYMb_re3gs-cCBvPlNI3Bhbc7r_21YmYJy_dU"
+});
+
+const myAccessToken = myOAuth2Client.getAccessToken()
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASSWORD,
-  },
-});
+       type: "OAuth2",
+       user: process.env.EMAIL, //your gmail account you used to set the project up in google cloud console"
+       clientId: "833607828480-ltcjqgdcgtj8gsmqsbv05adp9939178b.apps.googleusercontent.com",
+       clientSecret: "xw8qEdYnawKOon328_o1RGCC",
+       refreshToken: "1//04PIqWzHH9mL7CgYIARAAGAQSNwF-L9Ir7Mt8jMkn6Kroi9GCbCyOakDydpadUBDYMb_re3gs-cCBvPlNI3Bhbc7r_21YmYJy_dU",
+       accessToken: myAccessToken //access token variable we defined earlier
+  }});
 
 exports.nameChange = async ({ newName }, user) => {
   const userInDatabase = await User.findOne({ email: user.email });
