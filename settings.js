@@ -1,4 +1,4 @@
 module.exports = {
   PROJECT_DIR: __dirname,
-  BASE_URL: "https://cryptic-brushlands-33727.herokuapp.com",
+  BASE_URL: "https://pizza-yo0m.onrender.com",
 };
