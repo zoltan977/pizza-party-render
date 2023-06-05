@@ -87,7 +87,7 @@ exports.reset = async (postedData) => {
     from: `"Admin" ${process.env.email}`, // sender address
     to: user.email, // list of receivers
     subject: "Jelszó változtatás", // Subject line
-    html: `<p>Jelszóváltoztatáshoz kattints <a href="http://localhost:3000/password_reset?code=${buf.toString(
+    html: `<p>Jelszóváltoztatáshoz kattints <a href="http://${process.env.BASE_URI}/password_reset?code=${buf.toString(
       "hex"
     )}&email=${user.email}">erre</a> a linkre!</p>`, // html body
   });
