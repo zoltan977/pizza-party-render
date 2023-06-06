@@ -270,7 +270,7 @@ exports.updateProfile = async (postedData, user, userFile) => {
       throw { msg: "Image size or format is not correct", status: 400 };
     }
 
-    const uploadPath = __dirname + "/public/photos/" + user.email;
+    const uploadPath = "/public/photos/" + user.email;
     try {
       userFile.mv(uploadPath);
       update.photo = "photos/" + user.email;
