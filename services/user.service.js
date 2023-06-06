@@ -6,6 +6,7 @@ const oauth2Client = require("../utils/oauth2Client")();
 const jwt = require("jsonwebtoken");
 const { validateImage } = require("../utils/validateImage");
 const transporter = require("../utils/oauthEmail");
+const settings = require("../settings");
 
 exports.nameChange = async ({ newName }, user) => {
   const userInDatabase = await User.findOne({ email: user.email });
@@ -270,7 +271,7 @@ exports.updateProfile = async (postedData, user, userFile) => {
       throw { msg: "Image size or format is not correct", status: 400 };
     }
 
-    const uploadPath = "/public/photos/" + user.email;
+    const uploadPath = settings.PROJECT_DIR + "/public/photos/" + user.email;
     try {
       userFile.mv(uploadPath);
       update.photo = "photos/" + user.email;
