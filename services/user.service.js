@@ -4,7 +4,6 @@ const { randomBytes } = require("crypto");
 const createToken = require("../utils/createToken");
 const oauth2Client = require("../utils/oauth2Client")();
 const jwt = require("jsonwebtoken");
-const settings = require("../settings");
 const { validateImage } = require("../utils/validateImage");
 const transporter = require("../utils/oauthEmail");
 
@@ -201,7 +200,7 @@ exports.register = async (registrationData) => {
       from: `"Admin" ${process.env.EMAIL}`, // sender address
       to: savedUser.email, // list of receivers
       subject: "Regisztráció megerősítés", // Subject line
-      html: `<p>A regisztráció megerősítéséhez kattints <a href="${settings.BASE_URL}/confirm?code=${buf.toString(
+      html: `<p>A regisztráció megerősítéséhez kattints <a href="${process.env.BASE_URI}/confirm?code=${buf.toString(
         "hex"
       )}&email=${savedUser.email}">erre</a> a linkre!</p>`,
     });
@@ -271,7 +270,7 @@ exports.updateProfile = async (postedData, user, userFile) => {
       throw { msg: "Image size or format is not correct", status: 400 };
     }
 
-    const uploadPath = settings.PROJECT_DIR + "/public/photos/" + user.email;
+    const uploadPath = __dirname + "/public/photos/" + user.email;
     try {
       userFile.mv(uploadPath);
       update.photo = "photos/" + user.email;

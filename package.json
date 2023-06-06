@@ -6,8 +6,6 @@
   "scripts": {
     "test": "jest",
     "start": "node start.js",
-    "heroku-postbuild": "npm install",
-    "run": "concurrently \"node start.js\" \"npm start --prefix ../frontend\"",
     "prettier-check": "prettier --check .",
     "prettier-write": "prettier --write ."
   },
@@ -33,7 +31,6 @@
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.19.0",
-    "concurrently": "^6.1.0",
     "jest": "^27.0.6",
     "mongodb-memory-server": "^7.3.4",
     "nodemailer-mock": "^1.5.11",
